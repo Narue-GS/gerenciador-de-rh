@@ -12,10 +12,10 @@
   - Que o usuário entre e saia com facilidade de forma  intuitiva;
 
 # Processo:
-> **Dia 1 (22/03):**
+> **Dia 1 (21/03):**
 >> - Tivemos um brain storming sobre a proposta do cliente formando o rascunho inicial do user flow e do desing.
 >> - Separamos as responsabilidades, ficando: Naruê (lógica com Javascript), Victor (HTML e CSS), Larissa (Desing). 
 
-> **Dia 2(23/03):**
+> **Dia 2(22/03):**
 >> - Repensamos a identidade visual e a paleta de cores da aplicação e optamos por `tons de azul`, passando seriedade, segurança e profissionalidade. \
 >> - Tivemos uma reunião com toda a equipe da `ELITI`, repensamos sobre a proposta e decidimos separar o MVP em dois principais: um mais simples, com apenas cadastro e remoção irrestrito, sem restrições por permição com alçadas e permições fantasia, e outra mais complexa, com restrições de conteúdo e funcionalidades, alçadas e permições reais.
