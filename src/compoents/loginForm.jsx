@@ -1,12 +1,19 @@
+import '../styles/loginform.css'
+
 const LoginForm = () => {
   return(
-    <div>
-      <img src="https://i.ibb.co/NsdQB3Q/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail-removebg-preview.png" />
-      <form action="" method="post">
-        <input placeholder="Usuário"/>
-        <input placeholder="Senha"/>
-      </form>
-    </div>
+    <>
+    <h1>Login</h1>
+    
+      <div className='corpo'>
+        <form action="" method="post">
+          <p>E-mail</p>
+          <input placeholder="Usuário"/>
+          <p>Senha</p>
+          <input placeholder="Senha"/>
+        </form>
+      </div>
+    </>
   )
 }
 export default LoginForm
