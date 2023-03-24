@@ -30,3 +30,6 @@
 
 >> User flow:
 >>> <a href="https://ibb.co/WnZ0qLF"><img src="https://i.ibb.co/1Z1MhkK/User-flow-gerenciador-de-rh.jpg" alt="User-flow-gerenciador-de-rh" border="0"></a>
+
+> **Dia4(24/03):**
+>> - Criamos as funções de login e logout, utilizando o usuário `Carlos`
