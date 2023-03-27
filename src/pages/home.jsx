@@ -30,9 +30,9 @@ const Home = () => {
   const [jurisdictions , setJurisdictions] = useState([{id:0, name:"Gerente", permissions:[0,1,2,3,5]}])
   const [usersList, setUserList] = useState([{id:0, name:"Carlos", email:"carlos@gmail.com", password:"wE4&34e$5$Ix", age:null, jurisdiction:0}])
 	return(
-		<>
+		<div className="home">
 			{currentUser? <h1 onClick={logout}>{currentUser.name}</h1> : <LoginForm loginFunc={login}/>}
-  	</>
+  		</div>
 	)
 }
 
