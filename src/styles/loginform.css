@@ -1,3 +1,8 @@
+.home{
+    display: flex;
+    justify-content: flex-end;
+}
+
 input{
     display: flex;
     flex-direction: column;
@@ -6,6 +11,7 @@ input{
     width: 307.12px;
     height: 45.56px;
     border-radius: 45px;
+    justify-content: center;
 }
 div h1 {
     color: white;
@@ -13,20 +19,19 @@ div h1 {
 }
 
 .login{
+    
 
 }
 
 .texto{
     text-align: center;
-}
-
-.botão{
-    align-items: center;
-    color: red;
+    
 }
 
 .corpo{
     background-color: rgb(2, 10, 38);
-    height: 600px;
+    height: 100vh;
     width: 413.86px;
+    display: flex;
+    
   }
