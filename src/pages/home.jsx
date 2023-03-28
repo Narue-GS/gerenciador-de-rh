@@ -16,11 +16,17 @@ const Home = () => {
 		{id:0, name:"Gerente", permissions:[0,1,2,3,5]},
 		{id:1, name:"Desenvolvedor", permissions:[0]},
 	])
-  const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")))
-	const admin = users.filter((i)=> i.id === 0).length === 0
-	if(admin){
-		setUsers(users.push({age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}))
+	const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")))
+	const init = () => {
+		if (!users) {
+			setUsers([{age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}])
+		} else {
+			const admin = users.filter((i)=> i.id === 0).length === 0
+			if(admin) setUsers(users.push({age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}))
+		}
 	}
+	init()
+
 	const login = (outUser) => {
 		users.map((user) => { 
 			if(user.password === outUser.password && user.email === outUser.email){
