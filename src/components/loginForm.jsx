@@ -3,22 +3,23 @@ import '../styles/loginform.css'
 const LoginForm = ({loginFunc}) => {
   return(
     <>
-    <div className='corpo'>
+    <div className='body'>
 
     <div className='login'>
       
-      <h1 className='texto'>Login</h1>
+      <h1 className='text'>Login</h1>
 
           <div>
-            <h1>E-mail</h1>
-            <input id="userEmail" placeholder="Email"/>
+            <div>
+              <span>E-mail</span>
+              <input id="userEmail" placeholder="Email"/>
+            </div>
+            <div>
+              <span>Senha</span>
+              <input id="userPassword" placeholder="Senha"/>
+            </div>
           </div>
-
-          <div>
-            <h1>Senha</h1>
-            <input id="userPassword" placeholder="Senha"/>
-          </div>
-
+          
               <button onClick={() =>{
                 const thisUser = {
                   email: document.querySelector("input#userEmail").value, 
@@ -26,7 +27,15 @@ const LoginForm = ({loginFunc}) => {
                 }
                 loginFunc(thisUser)
               }
-            }>Continuar</button>
+            }>Continuar</button>  
+      </div>
+    </div>
+    
+    <div>
+      <div className='circulo1'>
+        <div className='circulo2'>
+          <p>.</p>
+        </div>
       </div>
     </div>
     </>

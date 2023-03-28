@@ -1,37 +1,45 @@
-.home{
-    display: flex;
-    justify-content: flex-end;
-}
-
 input{
-    display: flex;
-    flex-direction: column;
     padding: 10px;
     margin: 10px;
     width: 307.12px;
     height: 45.56px;
     border-radius: 45px;
+}
+span{
+    color:white;
+}
+
+.text{
+    display:flex;
+    text-align: center;
+    color: white;
+    font-size: 300%;
+    height: 30vh;
+    place-items: center;
     justify-content: center;
 }
-div h1 {
-    color: white;
 
-}
-
-.login{
-    
-
-}
-
-.texto{
-    text-align: center;
-    
-}
-
-.corpo{
+.body{
     background-color: rgb(2, 10, 38);
     height: 100vh;
-    width: 413.86px;
+    width: 33vw;
     display: flex;
-    
+    position: absolute;
+    right: 0;
+    justify-content: center;
   }
+
+  .circulo1{
+    border: solid 1px black;
+    height: 130px;
+    width: 130px;
+    border-radius: 70px;
+  }
+
+  .circulo2{
+    background-color:rgb(2, 10, 38);
+    height: 120px;
+    width: 120px;
+    border-radius: 70px;
+  }
+  
