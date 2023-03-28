@@ -1,5 +1,6 @@
-import LoginForm from "../compoents/loginForm"
-import { useState } from "react"
+import LoginForm from "../components/loginForm"
+import UserList from "../components/userList"
+import { useState, useEffect } from "react"
 
 const Home = () => {
   const [permissions, setPermissions] = useState([
@@ -11,28 +12,63 @@ const Home = () => {
 		{id:5, name:"Cadastrar, modificar e deletar permições"}
   ])
 	const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")))
-
+	const [jurisdictions , setJurisdictions] = useState([
+		{id:0, name:"Gerente", permissions:[0,1,2,3,5]},
+		{id:1, name:"Desenvolvedor", permissions:[0]},
+	])
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")))
+	const admin = users.filter((i)=> i.id === 0).length === 0
+	if(admin){
+		setUsers(users.push({age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}))
+	}
 	const login = (outUser) => {
-		usersList.map((user) => { 
+		users.map((user) => { 
 			if(user.password === outUser.password && user.email === outUser.email){
-				localStorage.setItem("currentUser", JSON.stringify(user))
 				setCurrentUser(user)
 				alert("logado com sucesso")
 				return true
 			}
 		})
 	}
+
 	const logout = () =>{
-		localStorage.removeItem("currentUser")
 		setCurrentUser(null)
 	}
-  
-  const [jurisdictions , setJurisdictions] = useState([{id:0, name:"Gerente", permissions:[0,1,2,3,5]}])
-  const [usersList, setUserList] = useState([{id:0, name:"Carlos", email:"carlos@gmail.com", password:"wE4&34e$5$Ix", age:null, jurisdiction:0}])
+
+	const findJurisdiction = (id) => {
+    const yourJurisdiction = jurisdictions.filter( i => i.id === id)
+    return yourJurisdiction[0]
+  }
+
+  const findPermissions = (ids) => {
+    let yourPermissions = []
+    for(let i=0; i<permissions.length;i++){
+      if(ids[i] === permissions[i]) console.log(ids[i])
+    }
+  }
+
+	let currentJurisdiction
+	
+	if (currentUser) currentJurisdiction = findJurisdiction(currentUser.jurisdiction)
+	
+	useEffect(()=>{	
+		localStorage.setItem("currentUser", JSON.stringify(currentUser))
+	},[currentUser])
+
+	useEffect(()=>{ 
+     localStorage.setItem("users", JSON.stringify(users))
+   },[users])
+
 	return(
 		<div className="home">
-			{currentUser? <h1 onClick={logout}>{currentUser.name}</h1> : <LoginForm loginFunc={login}/>}
-  		</div>
+			{currentUser?
+				<>
+					<h1 onClick={logout}>{currentUser.name} - {currentJurisdiction.name}</h1>
+					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
+				</>
+				: <LoginForm loginFunc={login}/>
+			}
+  	</div>
 	)
 }
 
