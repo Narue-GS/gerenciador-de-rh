@@ -1,5 +1,6 @@
 import LoginForm from "../components/loginForm"
 import UserList from "../components/userList"
+import Welcome from "../components/welcome"
 import { useState, useEffect } from "react"
 
 const Home = () => {

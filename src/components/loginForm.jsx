@@ -30,14 +30,6 @@ const LoginForm = ({loginFunc}) => {
             }>Continuar</button>  
       </div>
     </div>
-    
-    <div>
-      <div className='circulo1'>
-        <div className='circulo2'>
-          <p>.</p>
-        </div>
-      </div>
-    </div>
     </>
   )
 }

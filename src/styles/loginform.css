@@ -29,17 +29,3 @@ span{
     justify-content: center;
   }
 
-  .circulo1{
-    border: solid 1px black;
-    height: 130px;
-    width: 130px;
-    border-radius: 70px;
-  }
-
-  .circulo2{
-    background-color:rgb(2, 10, 38);
-    height: 120px;
-    width: 120px;
-    border-radius: 70px;
-  }
-  
