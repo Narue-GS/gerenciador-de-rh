@@ -21,7 +21,7 @@
   width: 20vw;
   height: 0;
   overflow: hidden;
-  display: flex;
+  display: none;
   flex-direction: column;
   place-items: center;
   justify-content: space-evenly;

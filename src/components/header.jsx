@@ -1,11 +1,14 @@
 import "../styles/header.css"
 import { GoThreeBars } from 'react-icons/go';
 
-const Header = (permissions) => {
+const Header = ({permissions}) => {
+	let display = "none"
   const dropOptions = () =>{
-    const options = document.querySelector("#home-more")
-    options.style.backgroundColor = "red"
-  }
+    let options = document.querySelector("#header-options").style
+		if(options.display != "flex"){
+			options.display = "flex"
+  	} else options.display = "none"
+	}
   console.log(permissions)
     return(
         <header id="home-header">
