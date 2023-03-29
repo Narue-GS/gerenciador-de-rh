@@ -16,3 +16,31 @@
   justify-content: center;
   background-color: #121940;
 }
+
+#header-options {
+  width: 20vw;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: space-evenly;
+  background-color: #121940;
+  position: absolute;
+  border-radius: 10px;
+  top: 5vw;
+  animation-name: dropOptions;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dropOptions {
+  from {}
+  to{
+    height: 25vw;
+  }
+}
+
+#header-options button {
+  width: 70%
+}

@@ -1,8 +1,8 @@
 import '../styles/welcome.css'
 
 const Welcome = () => {
-    return(<>
-
+    return(
+    <>
         <div id="circle"></div>
     </>
     )

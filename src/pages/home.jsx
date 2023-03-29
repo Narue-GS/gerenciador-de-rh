@@ -73,7 +73,7 @@ const Home = () => {
 		<div className="home">
 			{currentUser?
 				<div id="main">
-					<Header />
+					<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions}/>
 					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
 				</div>
 				: <LoginForm loginFunc={login}/>
