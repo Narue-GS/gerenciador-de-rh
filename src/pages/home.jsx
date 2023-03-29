@@ -1,5 +1,8 @@
+import "../styles/home.css"
+
 import LoginForm from "../components/loginForm"
 import UserList from "../components/userList"
+import Header from "../components/header"
 import Welcome from "../components/welcome"
 import { useState, useEffect } from "react"
 
@@ -69,10 +72,10 @@ const Home = () => {
 	return(
 		<div className="home">
 			{currentUser?
-				<>
-					<h1 onClick={logout}>{currentUser.name} - {currentJurisdiction.name}</h1>
+				<div id="main">
+					<Header />
 					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
-				</>
+				</div>
 				: <LoginForm loginFunc={login}/>
 			}
   	</div>

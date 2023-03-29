@@ -1,0 +1,15 @@
+#user-list {
+    width: 60%;
+    margin-top: 2%;
+}
+
+#user {
+    background-color: #121940;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    place-items: center;
+    font-size: clamp(12px, 0.75vw + 0.75em, 3em);
+    width: 45%;
+    height: 2.5em;
+}
