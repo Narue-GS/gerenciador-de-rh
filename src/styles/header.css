@@ -17,7 +17,7 @@
   background-color: #121940;
 }
 
-#header-options {
+.options {
   width: 20vw;
   height: 0;
   overflow: hidden;
@@ -41,6 +41,6 @@
   }
 }
 
-#header-options button {
+.options button {
   width: 70%
 }

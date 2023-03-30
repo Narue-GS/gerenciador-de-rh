@@ -3,6 +3,7 @@ import "../styles/home.css"
 import LoginForm from "../components/loginForm"
 import UserList from "../components/userList"
 import Header from "../components/header"
+import ModalUserRegister from "../components/modalUserRegister"
 import Welcome from "../components/welcome"
 import { useState, useEffect } from "react"
 
@@ -18,7 +19,7 @@ const Home = () => {
 
 	const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")))
 	const [jurisdictions , setJurisdictions] = useState([
-		{id:0, name:"Gerente", permissions:[0,1,2,3,5]},
+		{id:0, name:"Gerente", permissions:[0,2,3,5]},
 		{id:1, name:"Desenvolvedor", permissions:[0]},
 	])
 
@@ -61,7 +62,6 @@ const Home = () => {
   }
 
 	let currentJurisdiction
-	
 	if (currentUser) currentJurisdiction = findJurisdiction(currentUser.jurisdiction)
 	
 	useEffect(()=>{
@@ -77,6 +77,7 @@ const Home = () => {
 			{currentUser?
 				<div id="main">
 					<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions}/>
+					//<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} />
 					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
 				</div>
 				: <LoginForm loginFunc={login}/>
