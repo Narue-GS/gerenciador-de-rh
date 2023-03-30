@@ -1,5 +1,18 @@
 #main {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
+	display: flex;
+	flex-direction: column;
+	place-items: center;
 }
+
+.options {
+	overflow: hidden;
+	display: none;
+	height: 0;
+	flex-direction: column;
+	place-items: center;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+
+  

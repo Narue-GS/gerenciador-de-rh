@@ -1,22 +1,51 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
+import "../styles/modalUserRegister.css"
 
 const ModalUserRegister = ({users, setUsers, jurisdictions}) => {
 	const [juristictionState, setJurisdictionState] = useState("Alçadas ▸") 
+	const [chosenJurisdiction, setChosenJurisdiction] = useState(null)
 	const jurisdictionOptionsSwitch = () => {
-		//juristictionState == "Alçadas ▸" ? document.querySelector("#jurisdiction-choices").getElementsByClassName.display = "flex" : 
+		if(juristictionState === "Alçadas ▸") {
+			document.querySelector("#jurisdiction-choices").style.display = "flex"
+			setJurisdictionState("Alçadas▾")
+		} else{
+				document.querySelector("#jurisdiction-choices").style.display = "none"
+				setJurisdictionState("Alçadas ▸")
+		}
+	}
+
+	const jurisdictionChoice = (data) => {
+		setChosenJurisdiction(data)
+		const options = document.querySelector("#jurisdiction-choices").children
+		const option = document.querySelector(`#jurisdictionID${data.id}`)
+
+		for(let i in options){
+			if(typeof(options[i]) === "object"){
+				if(options[i].id !== option.id) document.querySelector(`#${options[i].id}`).style.backgroundColor = "white"
+			}
+		}
+
+		if(option.style.backgroundColor == "red"){
+			option.style.backgroundColor = "white"
+		} else option.style.backgroundColor = "red"
 	}
 
 	const addUser = () => {
 		const newUser = {
-			age: document.querySelector("#newAge"),
-			email: document.querySelector("#newEmail"),
 			id: uuidv4(),
-			name: document.querySelector("#newName"),
-			password: document.querySelector("#newPassword")
+			name: document.querySelector("#newName").value,
+			age: document.querySelector("#newAge").value,
+			email: document.querySelector("#newEmail").value,
+			password: document.querySelector("#newPassword").value,
+			jurisdiction: chosenJurisdiction
 		}
+		
+		setUsers([
+			...users,
+			newUser
+		])
 	}
-	console.log(jurisdictions)
 	return (
 		<div className="modal">
 			<div className="modal-shadow">
@@ -27,15 +56,15 @@ const ModalUserRegister = ({users, setUsers, jurisdictions}) => {
 					<input placeholder="Idade" id="newAge"></input>
 					<input placeholder="Email" id="newEmail"></input>
 					<input placeholder="Senha" id="newPassword"></input>
-					<div className='jurisdiction-options'>
-						<button onClick={() => setJurisdictionState("Alçadas▾")} id="jurisdiction-switch">{juristictionState}</button>
-						<div className='options' id="jurisdiction-choices">
+					<div id='jurisdiction-options'>
+						<button onClick={jurisdictionOptionsSwitch} id="jurisdiction-switch">{juristictionState}</button>
+						<div className='options modal-user-register' id="jurisdiction-choices">
 							{jurisdictions.map((i) => {
-								return <button key={i.id}>{i.name}</button>
+								return <button onClick={() => jurisdictionChoice(i)} key={i.id} id={`jurisdictionID${i.id}`}>{i.name}</button>
 							})}
 						</div>
 					</div>
-					<button>Confirmar</button>
+					<button onClick={addUser}>Confirmar</button>
 				</div>
 			</div>
 		</div>

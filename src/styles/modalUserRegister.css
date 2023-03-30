@@ -1,0 +1,15 @@
+
+.modal-user-register {
+  animation-name: dropOptionsModal;
+  width: 10%;
+  height: 0;
+  justify-content: space-evenly;
+}
+
+@keyframes dropOptionsModal {
+  from {}
+  to{
+    height: 5vw;
+    background-color: #121940b4;
+  }
+}

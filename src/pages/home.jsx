@@ -26,7 +26,7 @@ const Home = () => {
 	const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")))
 	const init = () => {
 		if (!users) {
-			setUsers([{age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}])
+			setUsers([{id: 0, name:"Carlos", age: null, email:"carlos@gmail.com", password:"wE4&34e$5$Ix", jurisdiction:0}])
 		} else {
 			const admin = users.filter((i)=> i.id === 0).length === 0
 			if(admin) setUsers(users.push({age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}))
@@ -77,7 +77,7 @@ const Home = () => {
 			{currentUser?
 				<div id="main">
 					<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions}/>
-					//<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} />
+					<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} />
 					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
 				</div>
 				: <LoginForm loginFunc={login}/>

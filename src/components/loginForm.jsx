@@ -1,4 +1,4 @@
-import '../styles/loginform.css'
+import '../styles/loginForm.css'
 
 const LoginForm = ({loginFunc}) => {
   return(
@@ -12,11 +12,11 @@ const LoginForm = ({loginFunc}) => {
           <div>
             <div>
               <span>E-mail</span>
-              <input id="userEmail" placeholder="Email"/>
+              <input className='input' id="userEmail" placeholder="Email"/>
             </div>
             <div>
               <span>Senha</span>
-              <input id="userPassword" placeholder="Senha"/>
+              <input className='input' id="userPassword" placeholder="Senha"/>
             </div>
           </div>
           

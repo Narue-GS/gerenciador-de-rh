@@ -17,30 +17,21 @@
   background-color: #121940;
 }
 
-.options {
+.drop-header {
   width: 20vw;
-  height: 0;
-  overflow: hidden;
-  display: none;
-  flex-direction: column;
-  place-items: center;
   justify-content: space-evenly;
   background-color: #121940;
   position: absolute;
   border-radius: 10px;
   top: 5vw;
-  animation-name: dropOptions;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+  animation-name: dropHeaderOptions;
 }
 
-@keyframes dropOptions {
+@keyframes dropHeaderOptions {
   from {}
   to{
     height: 25vw;
   }
 }
 
-.options button {
-  width: 70%
-}
+
