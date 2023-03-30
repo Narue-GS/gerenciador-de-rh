@@ -31,5 +31,22 @@
 >> User flow:
 >>> <a href="https://ibb.co/WnZ0qLF"><img src="https://i.ibb.co/1Z1MhkK/User-flow-gerenciador-de-rh.jpg" alt="User-flow-gerenciador-de-rh" border="0"></a>
 
-> **Dia4(24/03):**
+> **Dia 4(24/03):**
 >> - Criamos as funções de login e logout, utilizando o usuário `Carlos`
+
+> **Dias 5 e 6 (25/03 à 26/03)**
+>> - Tiramos o dia pra descançar e clarear as idéias.
+
+> **Dia 7 (27/03)**
+>> - Corrigimos um bug no login e na permanência do usuário administrador.
+>> - Adicionamos validações de permição para a visualização de conteúdo
+
+
+> **Dia 8 (28/03)**
+>> - Corrigimos um bug na lista de usuários
+>> - Tivemos uma palestra com o ilustre [Lucas Pacheco](https://github.com/pachecolucas). Nessa palestra ele explicou como deveriamos olhar para o nosso projeto como uma oportunidade de crescer e não como um peso. A pelestra foi inspiradora e nos ajudou a clarear as ideias para seguir em frente.
+
+> **Dia 9 (29/03)**
+>> - Desenvolvemos o básico da página principal e melhoramos a página de login.
+>> - Melhoramos a documentação no trello
+>> - Tivemos uma palestra com o ilustre [Lucas Pacheco](https://github.com/pachecolucas) sobre como deveriamos fazer o projeto na prática e como POO, programação orientada à objetos é eficiente.
