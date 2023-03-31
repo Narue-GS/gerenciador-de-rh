@@ -27,6 +27,16 @@
   animation-name: dropHeaderOptions;
 }
 
+#user-menu {
+	position:absolute;
+	right: 2vw;
+	display: flex;
+	gap: 2vw;
+	padding: 0 5px;
+	border-radius: 25px;
+	background-color:#121940;
+}
+
 @keyframes dropHeaderOptions {
   from {}
   to{

@@ -19,17 +19,18 @@ const Home = () => {
 
 	const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")))
 	const [jurisdictions , setJurisdictions] = useState([
-		{id:0, name:"Gerente", permissions:[0,2,3,5]},
+		{id:0, name:"Gerente", permissions:[0,1,2,3,5]},
 		{id:1, name:"Desenvolvedor", permissions:[0]},
 	])
 
 	const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")))
+	const [userRegisterDisplay, setUserRegisterDisplay] = useState(false)
 	const init = () => {
 		if (!users) {
 			setUsers([{id: 0, name:"Carlos", age: null, email:"carlos@gmail.com", password:"wE4&34e$5$Ix", jurisdiction:0}])
 		} else {
 			const admin = users.filter((i)=> i.id === 0).length === 0
-			if(admin) setUsers(users.push({age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}))
+			if(admin) setUsers(users.concat({age: null, email: "carlos@gmail.com", id: 0, jurisdiction:0, name:"Carlos", password:"wE4&34e$5$Ix"}))
 		}
 	}
 
@@ -76,8 +77,8 @@ const Home = () => {
 		<div className="home">
 			{currentUser?
 				<div id="main">
-					<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions}/>
-					<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} />
+					<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions} logoutFunc={logout} openModal={() => setUserRegisterDisplay(true)}/>
+					<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} display={userRegisterDisplay} setDisplay={setUserRegisterDisplay}/>
 					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
 				</div>
 				: <LoginForm loginFunc={login}/>

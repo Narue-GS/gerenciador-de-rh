@@ -2,9 +2,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import "../styles/modalUserRegister.css"
 
-const ModalUserRegister = ({users, setUsers, jurisdictions}) => {
+const ModalUserRegister = ({users, setUsers, jurisdictions, display, setDisplay}) => {
 	const [juristictionState, setJurisdictionState] = useState("Alçadas ▸") 
 	const [chosenJurisdiction, setChosenJurisdiction] = useState(null)
+
 	const jurisdictionOptionsSwitch = () => {
 		if(juristictionState === "Alçadas ▸") {
 			document.querySelector("#jurisdiction-choices").style.display = "flex"
@@ -38,7 +39,7 @@ const ModalUserRegister = ({users, setUsers, jurisdictions}) => {
 			age: document.querySelector("#newAge").value,
 			email: document.querySelector("#newEmail").value,
 			password: document.querySelector("#newPassword").value,
-			jurisdiction: chosenJurisdiction
+			jurisdiction: chosenJurisdiction.id
 		}
 		
 		setUsers([
@@ -46,29 +47,31 @@ const ModalUserRegister = ({users, setUsers, jurisdictions}) => {
 			newUser
 		])
 	}
+	if(display){
 	return (
 		<div className="modal">
-			<div className="modal-shadow">
+			<div className="modal-shadow" onClick={setDisplay(false)}>
 			</div>
-			<div id="modal-content">
-				<div>
+			<div id="user-register-content">
+				<div className="modal-form">
 					<input placeholder="Nome" id="newName"></input>
 					<input placeholder="Idade" id="newAge"></input>
 					<input placeholder="Email" id="newEmail"></input>
 					<input placeholder="Senha" id="newPassword"></input>
 					<div id='jurisdiction-options'>
 						<button onClick={jurisdictionOptionsSwitch} id="jurisdiction-switch">{juristictionState}</button>
-						<div className='options modal-user-register' id="jurisdiction-choices">
+						<div className='options user-register-options' id="jurisdiction-choices">
 							{jurisdictions.map((i) => {
 								return <button onClick={() => jurisdictionChoice(i)} key={i.id} id={`jurisdictionID${i.id}`}>{i.name}</button>
 							})}
 						</div>
 					</div>
-					<button onClick={addUser}>Confirmar</button>
 				</div>
+				<button onClick={addUser}>Confirmar</button>
 			</div>
 		</div>
 	)
+	} else return <></>
 }
 
 export default ModalUserRegister;
