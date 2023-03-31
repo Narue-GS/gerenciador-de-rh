@@ -81,7 +81,10 @@ const Home = () => {
 					<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} display={userRegisterDisplay} setDisplay={setUserRegisterDisplay}/>
 					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
 				</div>
-				: <LoginForm loginFunc={login}/>
+				:  <>
+					<Welcome/>
+					<LoginForm loginFunc={login}/>	
+				</>
 			}
   	</div>
 	)

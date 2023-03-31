@@ -14,5 +14,12 @@
 	animation-fill-mode: forwards;
 }
 
+.inputbox{
+	display: flex;
+	flex-direction: column;
+}
+.inputbox span{
+	margin-left: 20px;
+}
 
   

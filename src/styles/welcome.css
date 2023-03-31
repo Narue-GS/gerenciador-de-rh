@@ -1,7 +1,85 @@
-#circle{
-    height: 7vw;
-    width: 7vw;
-    border-radius: 0 100% 0 0;
-    background-color: black ;
-  }
-  
+
+.fa-circle{
+  font-size: 1400%;
+  display: flex;
+  color: rgb(2, 10, 38);
+  z-index: 1;
+  text-shadow: 0px 0px 5px black;
+}
+.circle1{
+  height: 270px;
+  width: 270px;
+  border-radius: 100%;
+  border: 1px solid black;
+  display: flex;
+  position: absolute;
+  left: 58%;
+  margin-top: -5%;
+  z-index: 1;
+  place-items: center;
+  justify-content: center;
+}
+
+#circle2{
+  height:10vw;
+  width: 10vw;
+  border-radius: 0 100% 0 0;
+  background-color:rgb(2, 10, 38);
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+#circle3{
+  height:11vw;
+  width: 11vw;
+  border-radius: 0 100% 0 0;
+  border:1px solid white;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+.line{
+  background-color: white;
+  height: 3PX;
+  width: 300PX;
+  display: flex;
+  position: absolute;
+  top: 30%;
+}
+.top1{
+  display: flex;
+  position: absolute;
+  top: 7%;
+  left: 10%;
+  width: 730px;
+}
+
+.top2{
+  display: flex;
+  position: absolute;
+  top: 12%;
+  width: 770px;
+}
+
+.bottom1{
+  display: flex;
+  position: absolute;
+  top: 88%;
+  left: 13%;
+  width: 730px;
+}
+
+.bottom2{
+  display: flex;
+  position: absolute;
+  top: 93%;
+  left: 15%;
+  width: 770px;
+}
+
+
+
+
