@@ -21,7 +21,7 @@ const Header = ({permissions, logoutFunc, openModal}) => {
 				<IoMdLogOut color="white" font-size="3vw" onClick={logoutFunc}/>
 			</div>
       <div className="options drop-header">
-      	{permissions.includes(1) ? <button onClick={openModal}>Contratar</button> : <></>}
+      	{permissions.includes(1) ? <button onClick={() => openModal(true)}>Contratar</button> : <></>}
         {permissions.includes(2) ? <button>Alçadas</button> : <></>}
         {permissions.includes(3) ? <button>Permissões</button> : <></>}
       </div>

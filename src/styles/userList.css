@@ -1,6 +1,16 @@
 #user-list {
     width: 60%;
+		min-height: 20vh;
+		max-height: 50vh;
+		overflow: scroll;
     margin-top: 2%;
+		display: flex;
+		justify-content: flex-start;
+		gap: 10%;
+		padding: 2%;
+		flex-wrap: wrap;
+		background-color: rgba(0,0,0,0.5);
+		border-radius: 10px;
 }
 
 #user {

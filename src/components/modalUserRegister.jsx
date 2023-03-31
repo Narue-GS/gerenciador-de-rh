@@ -47,10 +47,13 @@ const ModalUserRegister = ({users, setUsers, jurisdictions, display, setDisplay}
 			newUser
 		])
 	}
-	if(display){
-	return (
+	if(!display){
+		return null
+	}
+	return (	
 		<div className="modal">
-			<div className="modal-shadow" onClick={setDisplay(false)}>
+			<>
+			<div className="modal-shadow" onClick={() => setDisplay(false)}>
 			</div>
 			<div id="user-register-content">
 				<div className="modal-form">
@@ -69,9 +72,9 @@ const ModalUserRegister = ({users, setUsers, jurisdictions, display, setDisplay}
 				</div>
 				<button onClick={addUser}>Confirmar</button>
 			</div>
+			</>
 		</div>
 	)
-	} else return <></>
 }
 
 export default ModalUserRegister;

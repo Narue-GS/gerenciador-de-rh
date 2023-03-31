@@ -34,7 +34,6 @@ const Home = () => {
 		}
 	}
 
-	init()
 
 	const login = (outUser) => {
 		users.map((user) => { 
@@ -64,6 +63,10 @@ const Home = () => {
 
 	let currentJurisdiction
 	if (currentUser) currentJurisdiction = findJurisdiction(currentUser.jurisdiction)
+
+	useEffect(()=>{
+		init()
+	},[])
 	
 	useEffect(()=>{
 		localStorage.setItem("currentUser", JSON.stringify(currentUser))
@@ -77,9 +80,9 @@ const Home = () => {
 		<div className="home">
 			{currentUser?
 				<div id="main">
-					<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions} logoutFunc={logout} openModal={() => setUserRegisterDisplay(true)}/>
-					<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} display={userRegisterDisplay} setDisplay={setUserRegisterDisplay}/>
-					<UserList find={findJurisdiction} currentUser={currentUser} users={users} setUsers={setUsers}/>
+				<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions} logoutFunc={logout} openModal={setUserRegisterDisplay}/>
+				<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} display={userRegisterDisplay} setDisplay={setUserRegisterDisplay}/>
+				<UserList find={findJurisdiction} currentUser={currentUser} canSeeUsers={findJurisdiction(currentUser.jurisdiction).permissions.includes(0)} users={users} setUsers={setUsers}/>
 				</div>
 				:  <>
 					<Welcome/>

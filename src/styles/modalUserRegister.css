@@ -21,15 +21,12 @@
 }
 .user-register-options {
   animation-name: dropOptionsModal;
-  width: 10%;
   height: 0;
   justify-content: space-evenly;
 }
 .modal-form {	
 	display: flex;
-	justify-content: center;
 	gap: 1vw;
-	place-items: center;
 	flex-direction: column;
 }
 .modal-form input {
@@ -41,6 +38,9 @@
 	border: none;
 	color: white;
 	background-color: rgba(0,0,0,0.5)
+}
+#jurisdiction-options {
+	
 }
 
 @keyframes dropOptionsModal {
