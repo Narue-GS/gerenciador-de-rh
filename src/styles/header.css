@@ -31,10 +31,12 @@
 	position:absolute;
 	right: 2vw;
 	display: flex;
-	gap: 2vw;
-	padding: 0 5px;
-	border-radius: 25px;
+	gap: 1vw;
+}
+.user-menu-option {
 	background-color:#121940;
+  padding: 5px;
+	border-radius: 25px;
 }
 
 @keyframes dropHeaderOptions {

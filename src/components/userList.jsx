@@ -60,7 +60,14 @@ const UserList = ({find, currentUser, users, setUsers, jurisdictions}) => {
 								{jurisdictionState === "Alçadas▾" ?
             			<div >
             				{jurisdictions.map((i) => {
-                			return <button onClick={() => setSelectedJurisdiction(i)} onBlur={() => document.querySelector(`#jurisdictionID${i.id}`).style.backgroundColor = "white"} onFocus={() => document.querySelector(`#jurisdictionID${i.id}`).style.backgroundColor = "red"} key={i.id} id={`jurisdictionID${i.id}`}>{i.name}</button>
+                			return <button
+															onClick={() => setSelectedJurisdiction(i)}
+															onBlur={() => document.querySelector(`#jurisdictionID${i.id}`).style.backgroundColor = "white"}
+															onFocus={() => document.querySelector(`#jurisdictionID${i.id}`).style.backgroundColor = "red"}
+															key={i.id}
+															id={`jurisdictionID${i.id}`}>
+																{i.name}
+														 </button>
               			})}
 									</div>
 									: <></>
@@ -80,7 +87,7 @@ const UserList = ({find, currentUser, users, setUsers, jurisdictions}) => {
 						{find(currentUser.jurisdiction).permissions.includes(3)? <FaEdit id="edit" onClick={()=> switchEdit(user)}/> : <></>}
 						<div className="litle-info">
 							<span>{user.name}</span>
-							<span>{find(user.jurisdiction).name}</span>
+							<span>{find(users[0].jurisdiction).name}</span>
 						</div>
 					</div>
 				)

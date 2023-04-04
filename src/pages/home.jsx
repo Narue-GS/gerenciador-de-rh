@@ -5,6 +5,8 @@ import UserList from "../components/userList"
 import Header from "../components/header"
 import ModalUserRegister from "../components/modalUserRegister"
 import Welcome from "../components/welcome"
+import Profile from "../components/profile"
+
 import { useState, useEffect } from "react"
 
 const Home = () => {
@@ -18,6 +20,7 @@ const Home = () => {
   ])
 
 	const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")))
+	const [profile, setProfile] = useState()
 	const [jurisdictions , setJurisdictions] = useState([
 		{id:0, name:"Gerente", permissions:[0,1,2,3,5]},
 		{id:1, name:"Desenvolvedor", permissions:[0]},
@@ -53,42 +56,49 @@ const Home = () => {
     const yourJurisdiction = jurisdictions.filter( i => i.id === id)
     return yourJurisdiction[0]
   }
-
-  const findPermissions = (ids) => {
-    let yourPermissions = []
-    for(let i=0; i<permissions.length;i++){
-      if(ids[i] === permissions[i]) console.log(ids[i])
-    }
-  }
-
-	let currentJurisdiction
-	if (currentUser) currentJurisdiction = findJurisdiction(currentUser.jurisdiction)
-
+	const findPermissions = (ids) => {
+		const yourPermissions = []
+		const permissionsIds = permissions.map((i) => i.id)
+		console.log(permissionsIds)
+		for(let i = 0; i<ids.length; i++){
+			if(permissionsIds.includes(ids[i])){
+				console.log(permissions.filter((i) => i.id === ids[i]))
+			}
+		}
+		return yourPermissions
+	}
+	findPermissions([1,2,3])
 	useEffect(()=>{
 		init()
 	},[])
 	
 	useEffect(()=>{
 		localStorage.setItem("currentUser", JSON.stringify(currentUser))
+		setProfile({
+			display: false,
+			user: currentUser,
+			jurisdiction: findJurisdiction(currentUser.jurisdiction.id),
+			// permissions: findPermissions(currentUser.jurisdiction.permissions)
+		})
 	},[currentUser])
 
 	useEffect(()=>{ 
      localStorage.setItem("users", JSON.stringify(users))
-			console.log("aa")
    },[users])
 
 	return(
 		<div className="home">
 			{currentUser?
 				<div id="main">
-				<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions} logoutFunc={logout} openModal={setUserRegisterDisplay}/>
+				<Header permissions={findPermissions(findJurisdiction(currentUser.jurisdiction).permissions)} currentPermissions={findJurisdiction(currentUser.jurisdiction).permissions} logoutFunc={logout} openModal={setUserRegisterDisplay}/>
 				<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} display={userRegisterDisplay} setDisplay={setUserRegisterDisplay}/>
+				{/* <Profile profile={profile} /> */}
 				<UserList find={findJurisdiction} currentUser={currentUser} canSeeUsers={findJurisdiction(currentUser.jurisdiction).permissions.includes(0)} users={users} setUsers={setUsers} jurisdictions={jurisdictions}/>
 				</div>
-				:  <>
-					<Welcome/>
-					<LoginForm loginFunc={login}/>	
-				</>
+				: <>
+						<Welcome/>
+						<LoginForm loginFunc={login}/>	
+					</>
 			}
   	</div>
 	)
