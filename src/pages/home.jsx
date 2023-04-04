@@ -74,6 +74,7 @@ const Home = () => {
 
 	useEffect(()=>{ 
      localStorage.setItem("users", JSON.stringify(users))
+			console.log("aa")
    },[users])
 
 	return(
@@ -82,7 +83,7 @@ const Home = () => {
 				<div id="main">
 				<Header permissions={findJurisdiction(currentUser.jurisdiction).permissions} logoutFunc={logout} openModal={setUserRegisterDisplay}/>
 				<ModalUserRegister users={users} setUsers={setUsers} jurisdictions={jurisdictions} display={userRegisterDisplay} setDisplay={setUserRegisterDisplay}/>
-				<UserList find={findJurisdiction} currentUser={currentUser} canSeeUsers={findJurisdiction(currentUser.jurisdiction).permissions.includes(0)} users={users} setUsers={setUsers}/>
+				<UserList find={findJurisdiction} currentUser={currentUser} canSeeUsers={findJurisdiction(currentUser.jurisdiction).permissions.includes(0)} users={users} setUsers={setUsers} jurisdictions={jurisdictions}/>
 				</div>
 				:  <>
 					<Welcome/>

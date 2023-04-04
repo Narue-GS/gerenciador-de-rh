@@ -1,3 +1,9 @@
+.edit-modal {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 5vw;
+}
 #user-list {
     width: 60%;
 		min-height: 20vh;
@@ -7,7 +13,7 @@
 		display: flex;
 		justify-content: flex-start;
 		gap: 10%;
-		padding: 2%;
+		padding: 0 2% 2% 2%;
 		flex-wrap: wrap;
 		background-color: rgba(0,0,0,0.5);
 		border-radius: 10px;
@@ -17,9 +23,26 @@
     background-color: #121940;
     border-radius: 10px;
     display: flex;
-    justify-content: space-evenly;
+		justify-content: space-between;
     place-items: center;
     font-size: clamp(12px, 0.75vw + 0.75em, 3em);
     width: 45%;
+		margin-top: 2vw;
+		padding: 0 1vw;
     height: 2.5em;
+}
+
+#user .litle-info {
+	width:80%;
+	display: flex;
+	justify-content: flex-end;
+	gap: 1vw;
+}
+#user #edit:hover {
+	color: turquoise;
+	text-shadow: 0 0 3px turquoise;
+}
+
+#user #delete:hover {
+	color: red;
 }

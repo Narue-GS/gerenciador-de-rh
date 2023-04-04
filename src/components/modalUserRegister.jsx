@@ -55,7 +55,7 @@ const ModalUserRegister = ({users, setUsers, jurisdictions, display, setDisplay}
 			<>
 			<div className="modal-shadow" onClick={() => setDisplay(false)}>
 			</div>
-			<div id="user-register-content">
+			<div className="modal-content">
 				<div className="modal-form">
 					<input placeholder="Nome" id="newName"></input>
 					<input placeholder="Idade" id="newAge"></input>

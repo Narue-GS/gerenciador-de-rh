@@ -22,4 +22,38 @@
 	margin-left: 20px;
 }
 
-  
+.modal {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  place-items: center;
+}
+.modal-shadow {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top:0;
+  background-color: rgba(0,0,0,0.5)
+}
+.modal-content {        
+  z-index: 1;
+  background-color: #121940;
+  width: 33vw;
+  padding: 2vw;
+  border-radius: 10px
+}
+.modal-form { 
+  display: flex;
+  gap: 1vw;
+  flex-direction: column;
+}
+.modal-form input {
+  width: 100%;
+  font-size: clamp(12px, 0.75vw + 0.75em, 3em);
+  border-radius: 5px;
+  padding: 3px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: rgba(0,0,0,0.5)
+} 
