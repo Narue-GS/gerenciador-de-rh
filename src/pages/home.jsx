@@ -74,12 +74,6 @@ const Home = () => {
 	
 	useEffect(()=>{
 		localStorage.setItem("currentUser", JSON.stringify(currentUser))
-		setProfile({
-			display: false,
-			user: currentUser,
-			jurisdiction: findJurisdiction(currentUser.jurisdiction.id),
-			// permissions: findPermissions(currentUser.jurisdiction.permissions)
-		})
 	},[currentUser])
 
 	useEffect(()=>{ 
