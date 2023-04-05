@@ -50,3 +50,22 @@
 >> - Desenvolvemos o básico da página principal e melhoramos a página de login.
 >> - Melhoramos a documentação no trello
 >> - Tivemos uma palestra com o ilustre [Lucas Pacheco](https://github.com/pachecolucas) sobre como deveriamos fazer o projeto na prática e como POO, programação orientada à objetos é eficiente.
+
+> **Dia 10 (30/03)**
+>> - Fizemos um brain storming para repensar como ficaria a questão de documentação. Decidimos que o [Narue G. Santos](https://github.com/Narue-GS) ficará responsável pela documentação geral, enquanto o [Victor E.C. Santos](https://github.com/Victor-E-C-Santos) e a [Larissa] ficarão responsáveis por documentar suas respectivas áreas.
+>> - Trabalhamos em melhorias no código
+
+> **Dia 11 (31/03)**
+>> - Focamos em resolução de erros para iniciarmos a próxima semana emplementando novas features.
+
+> **Dias 12 e 13 (01/04 à 02/04)**
+>> - Tiramos o fim de semana pra descançar e refrescar a mente
+
+> **Dia 14 (03/04)**
+>> - Emplementamos a edição de usuários.
+>> - Ainda restaram alguns bugs na alteração do usuário 
+
+> **Dia 15 (04/04)**
+>> - Focamos no design. Desenvolvemos nossa logo oficial e repensamos o design da tela principal.
+>> - Iniciamos o desenvolvimento do design do formulaŕio de cadastro de usuário
+>> - Repensamos o design do header.
