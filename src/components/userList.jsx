@@ -1,7 +1,7 @@
 import '../styles/userList.css'
 import { FaWindowClose } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
-
+import {BsCircle} from 'react-icons/bs'
 import {useState} from "react"
 
 const UserList = ({find, currentUser, users, setUsers, jurisdictions}) => {

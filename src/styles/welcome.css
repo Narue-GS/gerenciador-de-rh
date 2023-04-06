@@ -19,7 +19,6 @@
   place-items: center;
   justify-content: center;
 }
-
 #circle2{
   height:10vw;
   width: 10vw;
@@ -30,7 +29,6 @@
   bottom: 0;
   z-index: 1;
 }
-
 #circle3{
   height:11vw;
   width: 11vw;
@@ -53,15 +51,17 @@
   display: flex;
   position: absolute;
   top: 7%;
-  left: 10%;
-  width: 730px;
+  left: 16%;
+  width: 550px;
+  z-index: 1;
 }
 
 .top2{
   display: flex;
   position: absolute;
   top: 12%;
-  width: 770px;
+  width: 600px;
+  z-index: 1;
 }
 
 .bottom1{
@@ -80,6 +80,20 @@
   width: 770px;
 }
 
+.circle5{
+  position: absolute;
+  top: -90PX;
+  left: -70px;
+  border: solid 1px white;
+  border-radius: 100%;
+  z-index: 1;
+}
 
-
+.circle6{
+  border: solid 1px white;
+  border-radius: 100%;
+  position: absolute;
+  top: -30px;
+  left: -220px;
+}
 

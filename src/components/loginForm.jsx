@@ -16,7 +16,7 @@ const LoginForm = ({loginFunc}) => {
             </div>
             <div className='inputbox'>
               <span>Senha</span>
-              <input className='input' id="userPassword" placeholder="Senha"/>
+              <input type="password" className='input' id="userPassword" placeholder="Senha"/>
             </div>
           
               <button className='button' onClick={() =>{
