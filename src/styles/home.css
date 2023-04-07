@@ -38,8 +38,9 @@
 .modal-content {        
   z-index: 1;
   background-color: #121940;
-  width: 33vw;
+  width: 50vw;
   padding: 2vw;
+  margin-top: 10%;
   border-radius: 10px
 }
 .modal-form { 
@@ -56,4 +57,17 @@
   border: none;
   color: white;
   background-color: rgba(0,0,0,0.5)
-} 
+}
+.permissions-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+}
+.permission {
+  background-color: rgba(0, 0, 0, 0.541);
+  display: block;
+  width: fit-content;
+  padding: 1em;
+  border-radius: 5px;
+  margin: 0.5em 0;
+}

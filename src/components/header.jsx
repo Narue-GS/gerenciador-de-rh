@@ -3,8 +3,7 @@ import { GoThreeBars } from 'react-icons/go';
 import { IoMdLogOut } from 'react-icons/io';
 import { AiOutlineUser } from 'react-icons/ai';
 
-const Header = ({permissions, currentPermissions, logoutFunc, openModal}) => {
-	console.log(permissions);
+const Header = ({currentPermissions, logoutFunc, openModal, openProfile}) => {
   const dropOptions = () =>{
     let options = document.querySelector(".options").style
 		options.display != "flex" ?	options.display = "flex" : options.display = "none"
@@ -19,7 +18,7 @@ const Header = ({permissions, currentPermissions, logoutFunc, openModal}) => {
 				: <></>
 			}
 			<div id="user-menu">
-				<AiOutlineUser className="user-menu-option" color="white" font-size="3vw" fontWeight="900"/>
+				<AiOutlineUser onClick={openProfile} className="user-menu-option" color="white" font-size="3vw" fontWeight="900"/>
 				<IoMdLogOut className="user-menu-option" color="white" font-size="3vw" onClick={logoutFunc}/>
 			</div>
       <div className="options drop-header">

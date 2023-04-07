@@ -25,7 +25,6 @@ const UserList = ({find, currentUser, users, setUsers, jurisdictions}) => {
 
 	const switchEdit = (user=null) => {
 		setEditDisplay(!editDisplay)
-		console.log(user)
 		if(user) setSelectedUser(user)
 	}
 
