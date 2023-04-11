@@ -39,6 +39,22 @@
   bottom: 0;
 }
 
+.circle5{
+  position: absolute;
+  top: -90PX;
+  left: -70px;
+  border: solid 1px white;
+  border-radius: 100%;
+}
+
+.circle6{
+  border: solid 1px white;
+  border-radius: 100%;
+  position: absolute;
+  top: -30px;
+  left: -220px;
+}
+
 .line{
   background-color: white;
   height: 3PX;
@@ -47,6 +63,7 @@
   position: absolute;
   top: 30%;
 }
+
 .top1{
   display: flex;
   position: absolute;
@@ -80,19 +97,30 @@
   width: 600px;
 }
 
-.circle5{
+.textprincipal{
+  display: flex;
+  text-align: center;
   position: absolute;
-  top: -90PX;
-  left: -70px;
-  border: solid 1px white;
-  border-radius: 100%;
+  top: 30%;
+  left: 19%;
+  font-size: 300%;
+  color: white;
 }
 
-.circle6{
-  border: solid 1px white;
-  border-radius: 100%;
-  position: absolute;
-  top: -30px;
-  left: -220px;
+.texth1{
+  color: white;
+  font-size: 70px;
+  text-shadow: 5px 5px rgb(95, 95, 95);
+  font-size: 70px;
 }
+
+.textp{
+  position: absolute;
+  top: 82%;
+  left: 43%;
+  font-size: 29px;
+  color: white;
+}
+
+
 

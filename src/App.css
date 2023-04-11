@@ -3,8 +3,14 @@
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
-
+::-webkit-scrollbar{
+  background-color: black;
+  width: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 body{
   background-color: #4e5a9e ;
 }

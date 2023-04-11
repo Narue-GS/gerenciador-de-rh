@@ -25,7 +25,7 @@
 @keyframes dropOptionsModal {
   from {}
   to{
-    height: 5vw;
-    background-color: #121940b4;
+    height: 20vw;
+    background-color: black;
   }
 }

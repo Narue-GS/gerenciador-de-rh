@@ -13,12 +13,12 @@ span{
     display:flex;
     text-align: center;
     color: white;
-    font-size: 300%;
     height: 50vh;
     place-items: center;
     justify-content: center;
     text-shadow: 5px 5px rgb(95, 95, 95);
-    font-size: 70px;
+    font-size: 60px;
+    z-index: 1;
 }
 
 .body{
@@ -42,6 +42,7 @@ span{
   .button{
     margin-top: 5%;
     border-radius: 50px;
+    height: 45.56px;
     width: 200px;
     font-size: 19px;
     background-color: #121940;
