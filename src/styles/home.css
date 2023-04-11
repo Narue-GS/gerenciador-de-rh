@@ -19,21 +19,21 @@
 }
 .form-menu button {
   font-size: clamp(6px, 0.75vw + 0.75em, 3em);
-  border-radius: 3px;
-  width: 22%;
+  border-radius: 15px;
   border: solid 1px rgba(255, 255, 255, 0);
   color: white;
-  padding: 1%
+  padding: 1%;
 }
 .form-menu button.confirm {
   background-color:#2a4c80;
 
 }
 .form-menu button.cancel {
-  background-color:#090c20
+  background-color: #d40c12
 }
 button:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 .modal {
   display: flex;

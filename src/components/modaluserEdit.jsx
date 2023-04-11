@@ -19,6 +19,14 @@ const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, current
 		closeEdit()
 	}
 
+  const dismiss = (id) => {
+		if(id !== 0){
+			const update = users.filter((user) => user.id !== id)
+			setUsers(update)
+			return true
+		} else alert("Nao foi possível demitir: usuário de alçada Gerente"); return false
+	}
+
   if(!selectedUser) return null
   return(
     <div className="modal">
@@ -26,7 +34,7 @@ const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, current
       <div className="modal-content edit-modal">     
         <div className="title">
           <AiOutlineUser  color="white" font-size="7vw"/>
-          <input className='profile-name' defaultValue={selectedUser.name} placeholder="Nome" id="upName" />
+          <input autoFocus={true} className='profile-name' defaultValue={selectedUser.name} placeholder="Nome" id="upName" />
         </div>
         <div className="profile-info">
           <div className="profile-field">

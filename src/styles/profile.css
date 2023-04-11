@@ -1,11 +1,10 @@
 .profile {
-  min-height: 70vh;
   place-items: center;
 }
 .profile-info {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .edit {
@@ -23,7 +22,7 @@
   background-color: #050a26;
   font-size: clamp(5px, 0.75vw +0.75em, 3em);
   padding: 1vw;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 .profile-field input{
   text-align: center;
@@ -37,11 +36,11 @@
   flex-wrap: wrap
 }
 .profile-name {
-  background-color: rgba(0,0,0,0.5);
+  background-color: #050a26;
   color: white;
+  padding: 1%;
   border: none;
   display:block;
-  width: 100%;
   text-align: center;
   font-size: clamp(12px, 1vw + 1em, 3em);
 }

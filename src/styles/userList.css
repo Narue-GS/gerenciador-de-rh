@@ -20,6 +20,7 @@
 }
 
 #user-card {
+	cursor: pointer;
 	background-color: #121940;
 	border-radius: 10px;
 	display: flex;
