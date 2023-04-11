@@ -23,7 +23,6 @@ const Welcome = () => {
                 <hr className='line top2'/>
                 <hr className='line bottom1'/>
                 <hr className='line bottom2'/>
-
     </>
     )
 }
