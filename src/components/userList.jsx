@@ -16,14 +16,6 @@ const UserList = ({openProfile, find, currentUser, canSeeUsers, users, setUsers,
       jurisdictionState === "Alçadas ▸" ? setJurisdictionState("Alçadas▾") : setJurisdictionState("Alçadas ▸")
   }
 
-	const dismiss = (id) => {
-		if(id !== 0){
-			const update = users.filter((user) => user.id !== id)
-			setUsers(update)
-			return true
-		} else alert("Nao foi possível demitir: usuário de alçada Gerente"); return false
-	}
-
 	const switchEdit = (user=null) => {
 		setEditDisplay(!editDisplay)
 		if(user) setSelectedUser(user)
