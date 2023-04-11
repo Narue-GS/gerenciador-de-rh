@@ -6,7 +6,7 @@ const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, current
 		const updatedUser = {
       id: selectedUser.id,
       name: document.querySelector("#upName").value,
-      age: document.querySelector("#upBirth").value,
+      birth: document.querySelector("#upBirth").value,
       email: document.querySelector("#upEmail").value,
       password: document.querySelector("#upPassword").value,
       jurisdiction: selectedUser.id
