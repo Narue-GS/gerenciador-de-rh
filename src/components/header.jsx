@@ -3,7 +3,7 @@ import { GoThreeBars } from 'react-icons/go';
 import { IoMdLogOut } from 'react-icons/io';
 import { AiOutlineUser } from 'react-icons/ai';
 
-const Header = ({currentPermissions, logoutFunc, openModal, openProfile}) => {
+const Header = ({currentPermissions, logoutFunc, openPermissions, openModal, openProfile}) => {
   const dropOptions = () =>{
     let options = document.querySelector(".options").style
 		options.display != "flex" ?	options.display = "flex" : options.display = "none"
@@ -15,7 +15,7 @@ const Header = ({currentPermissions, logoutFunc, openModal, openProfile}) => {
       <nav>
       	{currentPermissions.includes(1) ? <button onClick={() => openModal(true)}>Contratar</button> : <></>}
         {currentPermissions.includes(2) ? <button>Alçadas</button> : <></>}
-        {currentPermissions.includes(3) ? <button>Permissões</button> : <></>}
+        {currentPermissions.includes(3) ? <button onClick={openPermissions}>Permissões</button> : <></>}
       </nav>
 			<div id="user-menu">
 				<AiOutlineUser onClick={openProfile} className="user-menu-option" color="white" font-size="3vw" fontWeight="900"/>

@@ -9,7 +9,7 @@ const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, current
       birth: document.querySelector("#upBirth").value,
       email: document.querySelector("#upEmail").value,
       password: document.querySelector("#upPassword").value,
-      jurisdiction: selectedUser.id
+      jurisdiction: find(selectedUser.jurisdiction).id
     }
 		newList[users.indexOf(selectedUser)] = updatedUser
 		setUsers(newList)
@@ -19,13 +19,7 @@ const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, current
 		closeEdit()
 	}
 
-  const dismiss = (id) => {
-		if(id !== 0){
-			const update = users.filter((user) => user.id !== id)
-			setUsers(update)
-			return true
-		} else alert("Nao foi possível demitir: usuário de alçada Gerente"); return false
-	}
+ 
 
   if(!selectedUser) return null
   return(

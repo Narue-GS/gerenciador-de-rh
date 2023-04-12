@@ -5,8 +5,18 @@ import { FaEdit } from 'react-icons/fa';
 
 import { useState } from "react";
 
-const Profile = ({ find, profile, openEdit, closeProfile }) => {
+const Profile = ({find, profile, openEdit, users, setUsers, closeProfile}) => {
 	const [dropState, setDropState] = useState(false)
+
+	const dismiss = (id) => {
+		if(id !== 0){
+			const update = users.filter((user) => user.id !== id)
+			setUsers(update)
+			closeProfile()
+			return true
+		} else alert("Nao foi possível demitir: usuário de alçada Gerente"); return false
+	}
+
 	if (!profile) return null
 	return (
 		<div className="modal">
@@ -43,7 +53,7 @@ const Profile = ({ find, profile, openEdit, closeProfile }) => {
 					</div>
 				</div>
         <div className="form-menu">
-					<button className="cancel">Demitir</button>
+					<button className="cancel" onClick={() => dismiss(profile.id)}>Demitir</button>
 				</div>
 			</div>
 		</div>

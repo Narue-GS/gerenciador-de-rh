@@ -7,6 +7,7 @@ import ModalUserEdit from "../components/modaluserEdit"
 import ModalUserRegister from "../components/modalUserRegister"
 import Welcome from "../components/welcome"
 import Profile from "../components/profile"
+import PermissionList from "../components/permissionList"
 
 import { useState, useEffect } from "react"
 
@@ -30,6 +31,7 @@ const Home = () => {
 
 	const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")))
 	const [userRegisterDisplay, setUserRegisterDisplay] = useState(false)
+	const [permissionsDisplay, setPermissionsDisplay] = useState()
 	const init = () => {
 		if (!users) {
 			setUsers([{ id: 0, name: "Carlos", birth: null, email: "carlos@gmail.com", password: "wE4&34e$5$Ix", jurisdiction: 0 }])
@@ -99,6 +101,7 @@ const Home = () => {
 					<Header
 						currentPermissions={findJurisdiction(currentUser.jurisdiction).permissions}
 						logoutFunc={logout}
+						openPermissions={() => setPermissionsDisplay(true)}
 						openModal={setUserRegisterDisplay}
 						openProfile={() => openProfile(currentUser)}
 					/>
@@ -123,6 +126,8 @@ const Home = () => {
 						find={findJurisdiction}
 						profile={profile}
 						openEdit={() => editSwitch(profile)}
+						users={users}
+						setUsers={setUsers}
 						closeProfile={() => {
 							setProfile(false)
 						}}
@@ -134,6 +139,11 @@ const Home = () => {
 						canSeeUsers={findJurisdiction(currentUser.jurisdiction).permissions.includes(0)}
 						users={users} setUsers={setUsers}
 						jurisdictions={jurisdictions}
+					/>
+					<PermissionList
+					 permissions={permissions}
+					 display={permissionsDisplay}
+					 setDisplay={setPermissionsDisplay}
 					/>
 				</div>
 				: <>

@@ -1,0 +1,67 @@
+#permission-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%
+}
+
+.simple {
+  border-top: solid 3px rgba(63, 63, 63, 0.562);
+  display: flex;
+  place-items: end center;
+  margin-top: 5%;
+  padding: 1em
+}
+.simple button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 50%;
+}
+.simple-field {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  padding: 0.3em 0.7em;
+  border-radius: 30px;
+  width: 10%
+}
+.simple-field input {
+  width: 85%;
+  height: 2.5em;
+  background-color: #2a4c80;
+  font-size: clamp(6px, 0.5vw + 0.5em, 3em);
+  border: none;
+  outline: none;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 20px
+}
+.simple-button {
+  background-color: #2a4c80;
+  color:white;
+  font-size: 2vw;
+  padding: 0.30em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+}
+
+@keyframes showInput {
+  from{}
+  to{
+    width: 70%;
+    background-color: #121940;
+  }
+}
+
+@keyframes hideInput {
+  from{
+    width: 70%;
+    background-color: #121940;
+  }
+  to{
+    width: 10%;
+    background-color: #12194000;
+  }
+}
