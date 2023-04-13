@@ -69,3 +69,26 @@
 >> - Focamos no design. Desenvolvemos nossa logo oficial e repensamos o design da tela principal.
 >> - Iniciamos o desenvolvimento do design do formulaŕio de cadastro de usuário
 >> - Repensamos o design do header.
+
+> **Dia 16 (05/04)**
+>> - Trabalhamos em resolução de bugs e no aprimoramento da lógica.
+
+> **Dia 17 (06/04)**
+>> - Tivemos uma breve discução sobre o layout e sua relação praticidade/estilo. Visamos manter ao máximo o design original, mas priorizando a praticidade em vista do curto prazo. Pouca coisa foi alterada.
+
+> **Dia 18 (07/04)**
+>> - Adicionamos a visualização do perfil de usuários
+
+> **Dia 19 (08/04)**
+>> - Focamos em refatoração de código
+
+> **Dias 20 e 21 (09/04 à 10/04)**
+>> - Tiramos o fim de semana de folga
+
+> **Dia 22 (11/04)**
+>> - Adicionamos a opção de editar usuários e melhoramos o layout do perfil.
+>> - Finalizamos o desenvolvimento da tela de login
+>> - Atualizamos a aparência da barra de rolagem para ficar agradável em qualquer navegador
+
+> > **Dia 23 (12/04)**
+>> - Incluímos a visualização, criação e deleção de permissões
