@@ -1,0 +1,51 @@
+.simple-item.jurisdiction {
+  display: flex;
+  font-weight: 700;
+  background-color: #121940;
+  flex-direction: column;
+}
+
+.simple-item.jurisdiction span {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+.jurisdiction-menu {
+  display: flex;
+  place-items: center;
+  gap: 1%;
+}
+
+.clickable-icon:hover {
+  transform:scale(1.1)
+}
+
+.dropdown.simple-jurisdiction-permissions {
+  max-width: 20vw;
+  gap: 2%;
+  background-color: rgba(0, 0, 0, 0.164);
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px;
+}
+
+.dropdown.simple-jurisdiction-permissions span {
+  background-color: #2a4c80;
+  display: flex;
+  place-items: center;
+  border-radius: 30px;
+  padding: 1vw;
+  margin-top: 3px;
+}
+
+.simple-field.add-jurisdiction {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.simple-item.clickable:hover {
+  transform: scale(1.1);
+  cursor: pointer
+}

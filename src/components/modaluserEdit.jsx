@@ -1,25 +1,34 @@
+import "../styles/modalUserEdit.css"
+
 import { AiOutlineUser } from 'react-icons/ai';
 
-const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, currentuser, setCurrentUser, closeEdit}) => {
+import { useState } from 'react';
+import { useUsers } from '../hooks/useUsers';
+import { useCurrentUsers } from '../hooks/useCurrentUser';
+import { useJurisdictions } from '../hooks/useJurisdictions';
+
+const ModalUserEdit = ({find, selectedUser, setProfile, closeEdit}) => {
+  const {users, setUsers} = useUsers()
+  const {currentUser, setCurrentUser} = useCurrentUsers()
+  const {jurisdictions} = useJurisdictions()
+  const [selectedJurisdiction, setSelectedJurisdiction] = useState(currentUser.jurisdiction)
   const hendleSubmit = () => {
-		let newList = users
+		let newList = [...users]
 		const updatedUser = {
       id: selectedUser.id,
       name: document.querySelector("#upName").value,
       birth: document.querySelector("#upBirth").value,
       email: document.querySelector("#upEmail").value,
       password: document.querySelector("#upPassword").value,
-      jurisdiction: find(selectedUser.jurisdiction).id
+      jurisdiction: selectedJurisdiction
     }
 		newList[users.indexOf(selectedUser)] = updatedUser
 		setUsers(newList)
     setProfile(updatedUser)
-    if(currentuser.id === selectedUser.id) setCurrentUser(updatedUser)
+    if(currentUser.id === selectedUser.id) setCurrentUser(updatedUser)
 		localStorage.setItem("users", JSON.stringify(newList))
 		closeEdit()
 	}
-
- 
 
   if(!selectedUser) return null
   return(
@@ -45,7 +54,26 @@ const ModalUserEdit = ({users, find, setUsers, selectedUser, setProfile, current
 					</div>
           <div className="profile-field">
 						<span>Alçada</span><br/>
-            <input defaultValue={find(selectedUser.jurisdiction).name} placeholder="Senha" id="upPassword" />
+            <div className='dropdown user-edit'>
+              <span
+                style={selectedJurisdiction !== selectedUser.jurisdiction ? {"opacity":"50%"} : {}}
+                className='simple-item clickable'
+                onClick={() => setSelectedJurisdiction(selectedUser.jurisdiction)}
+                >
+                {find(selectedUser.jurisdiction).name}
+              </span>
+              {jurisdictions.map((i) => {
+                if(i.id !== selectedUser.jurisdiction && i.id !== 1){
+                  return <span
+                          style={selectedJurisdiction !== i.id ? {"opacity":"50%"} : {}}
+                          className='simple-item clickable'
+                          onClick={() => setSelectedJurisdiction(i.id)}
+                          >
+                          {i.name}
+                         </span>
+                }
+              })}
+            </div>
 					</div>
         </div>
         <div className='form-menu'>

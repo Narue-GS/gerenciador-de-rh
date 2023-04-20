@@ -3,24 +3,27 @@
   height: 0;
   justify-content: space-evenly;
 }
-.modal-form {	
-	display: flex;
-	gap: 1vw;
-	flex-direction: column;
+
+#user-register-dropdown {
+	width: 80%;
 }
-.modal-form input {
-	width: 100%;
-	font-size: clamp(12px, 0.75vw + 0.75em, 3em);
-	border-radius: 5px;
-	padding: 3px;
-	outline: none;
-	border: none;
-	color: white;
-	background-color: rgba(0,0,0,0.5)
+#user-register-dropdown button{
+  background-color: #121940;
+  color: white;
+  border: none;
+  padding: 2%;
+  border-radius: 20px;
 }
-#jurisdiction-options {
-	
+#jurisdiction-choices span {
+	cursor: pointer;
 }
+.jurisdiction-choice {
+	flex-wrap: wrap;
+}
+.modal-content.user-register {
+  width: 50vw;
+}
+
 
 @keyframes dropOptionsModal {
   from {}

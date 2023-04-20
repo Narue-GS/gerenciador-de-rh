@@ -1,12 +1,7 @@
 .profile {
   place-items: center;
 }
-.profile-info {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
+
 .edit {
   position: absolute;
   right: 3%

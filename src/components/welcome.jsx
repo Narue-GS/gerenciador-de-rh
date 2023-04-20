@@ -7,7 +7,7 @@ const Welcome = () => {
     return(
     <>
         
-            <div className='circle1'><i class="fa-solid fa-circle"></i></div>
+            <div className='circle1'><i className="fa-solid fa-circle"></i></div>
 
             <div className='circle5'>
                 <GiCircle color='#4e5a9e' fontSize="17vw"/>

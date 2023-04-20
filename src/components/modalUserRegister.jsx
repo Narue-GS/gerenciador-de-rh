@@ -1,37 +1,34 @@
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
 import "../styles/modalUserRegister.css"
 
-const ModalUserRegister = ({ users, setUsers, jurisdictions, display, setDisplay }) => {
-	const [juristictionState, setJurisdictionState] = useState("Alçadas ▸")
-	const [chosenJurisdiction, setChosenJurisdiction] = useState(null)
+import { useState } from 'react';
 
-	const jurisdictionOptionsSwitch = () => {
-		if (juristictionState === "Alçadas ▸") {
-			document.querySelector("#jurisdiction-choices").style.display = "flex"
-			setJurisdictionState("Alçadas▾")
-		} else {
-			document.querySelector("#jurisdiction-choices").style.display = "none"
-			setJurisdictionState("Alçadas ▸")
-		}
+import { AiOutlineUser } from "react-icons/ai";
+
+
+import { useUsers } from '../hooks/useUsers';
+import { useJurisdictions } from '../hooks/useJurisdictions';
+
+import { v4 as uuidv4 } from 'uuid';
+import { isNameValid, isBirthValid, isEmailValid, isPasswordValid, isJurisdictionValid } from '../utils/ValidateUserRegister.ts';
+
+const ModalUserRegister = ({ display, setDisplay }) => {
+	const { users, setUsers } = useUsers()
+	const { jurisdictions } = useJurisdictions()
+	const [juristictionState, setJurisdictionState] = useState(false)
+	const [chosenJurisdiction, setChosenJurisdiction] = useState({ id: null })
+	const [errorList, setErrorList] = useState([
+		false,
+		false,
+		false,
+		false,
+		false
+	])
+	const close = () => {
+		setChosenJurisdiction({ id: null })
+		setJurisdictionState(false)
+		setDisplay(false)
+		setErrorList([false, false, false, false, false])
 	}
-
-	const jurisdictionChoice = (data) => {
-		setChosenJurisdiction(data)
-		const options = document.querySelector("#jurisdiction-choices").children
-		const option = document.querySelector(`#jurisdictionID${data.id}`)
-
-		for (let i in options) {
-			if (typeof (options[i]) === "object") {
-				if (options[i].id !== option.id) document.querySelector(`#${options[i].id}`).style.backgroundColor = "white"
-			}
-		}
-
-		if (option.style.backgroundColor == "red") {
-			option.style.backgroundColor = "white"
-		} else option.style.backgroundColor = "red"
-	}
-
 	const addUser = () => {
 		const newUser = {
 			id: uuidv4(),
@@ -42,35 +39,79 @@ const ModalUserRegister = ({ users, setUsers, jurisdictions, display, setDisplay
 			jurisdiction: chosenJurisdiction.id
 		}
 
-		setUsers([
-			...users,
-			newUser
-		])
+		const validations = [
+			!isNameValid(newUser.name),
+			!isBirthValid(newUser.birth),
+			!isEmailValid(newUser.email),
+			!isPasswordValid(newUser.password),
+			!isJurisdictionValid(newUser.jurisdiction)
+		]
+
+		if(validations.includes(true)){
+			setErrorList(validations)
+		} else {
+			setUsers([...users, newUser])
+			close()
+		}
 	}
+
 	if (!display) {
 		return null
 	}
+
 	return (
 		<div className="modal">
 			<>
-				<div className="modal-shadow" onClick={() => setDisplay(false)}>
+				<div className="modal-shadow" onClick={() => {
+					setChosenJurisdiction({ id: null })
+					setJurisdictionState(false)
+					setDisplay(false)
+					setErrorList([false, false, false, false, false])
+				}}>
 				</div>
-				<div className="modal-content">
+				<div className="modal-content user-register">
 					<div className="modal-form">
-						<input placeholder="Nome" id="newName"></input>
-						<input type='date' id="newBirth"></input>
-						<input placeholder="Email" id="newEmail"></input>
-						<input placeholder="Senha" id="newPassword"></input>
-						<div id='jurisdiction-options'>
-							<button onClick={jurisdictionOptionsSwitch} id="jurisdiction-switch">{juristictionState}</button>
-							<div className='dropdown user-register-options' id="jurisdiction-choices">
+						<div className='title'>
+							<AiOutlineUser color="white" fontSize="7vw" />
+						</div>
+						<div className="modal-form-input">
+							<input placeholder="Nome" id="newName" />
+							<span style={errorList[0] ? { "opacity": "100%" } : {}} className='field-error'>Nome inválido</span>
+						</div>
+						<div className="modal-form-input">
+							<input type='date' id="newBirth" />
+							<span style={errorList[1] ? { "opacity": "100%" } : {}} className='field-error'>Data de nascimento inválida</span>
+						</div>
+						<div className="modal-form-input">
+							<input placeholder="Email" id="newEmail" />
+							<span style={errorList[2] ? { "opacity": "100%" } : {}} className='field-error'>Email inválido</span>
+						</div>
+						<div className="modal-form-input">
+							<input placeholder="Senha" id="newPassword" />
+							<span style={errorList[3] ? { "opacity": "100%" } : {}} className='field-error'>Senha inválida ou fraca</span>
+						</div>
+						<div id='user-register-dropdown'>
+							<button onClick={() => setJurisdictionState(!juristictionState)} id="jurisdiction-switch">{juristictionState ? "Alçadas▾" : "Alçadas ▸"}</button>
+							<div style={!juristictionState ? { "display": "none" } : {}} className='dropdown jurisdiction-choice' id="jurisdiction-choices">
 								{jurisdictions.map((i) => {
-									return <button onClick={() => jurisdictionChoice(i)} key={i.id} id={`jurisdictionID${i.id}`}>{i.name}</button>
+									if(i.id === 1) return null
+									return <span
+													className="simple-item"
+													style={chosenJurisdiction.id !== i.id ? { "opacity": "50%" } : {}}
+													onClick={() => {
+														chosenJurisdiction.id !== i.id ? setChosenJurisdiction({id:i.id}) : setChosenJurisdiction({id:null})
+													}}
+									 				key={i.id} id={`jurisdictionID${i.id}`}>
+													{i.name}
+												 </span>
 								})}
 							</div>
+							<br /><span style={errorList[4] ? { "opacity": "100%" } : {}} className='field-error'>Escolha uma alçada</span>
 						</div>
 					</div>
-					<button onClick={addUser}>Confirmar</button>
+					<div className='form-menu'>
+						<button className='confirm' onClick={addUser}>Confirmar</button>
+					</div>
 				</div>
 			</>
 		</div>

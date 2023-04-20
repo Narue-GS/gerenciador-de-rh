@@ -18,7 +18,6 @@ const LoginForm = ({loginFunc}) => {
               <span>Senha</span>
               <input type="password" className='input' id="userPassword" placeholder="Senha"/>
             </div>
-          
               <button className='button' onClick={() =>{
                 const thisUser = {
                   email: document.querySelector("input#userEmail").value, 
@@ -26,7 +25,6 @@ const LoginForm = ({loginFunc}) => {
                 }
                 loginFunc(thisUser)
               }
-            
             }>Continuar</button>  
             </div>
       </div>

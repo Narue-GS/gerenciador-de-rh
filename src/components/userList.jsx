@@ -1,26 +1,11 @@
 import '../styles/userList.css'
-import { FaWindowClose } from 'react-icons/fa';
-import {BsCircle} from 'react-icons/bs'
 import { AiOutlineUser } from 'react-icons/ai';
 
-import {useState} from "react"
+import { useUsers } from '../hooks/useUsers';
 
-const UserList = ({openProfile, find, currentUser, canSeeUsers, users, setUsers, jurisdictions}) => {
-	const [selectedUser, setSelectedUser] = useState()
-	const [selectedJurisdiction, setSelectedJurisdiction] = useState()
-	const [editDisplay, setEditDisplay] = useState(false)
-	const [jurisdictionState, setJurisdictionState] = useState("Alçadas ▸") 
-  const [chosenJurisdiction, setChosenJurisdiction] = useState(null)
-
-  const jurisdictionOptionsSwitch = () => {
-      jurisdictionState === "Alçadas ▸" ? setJurisdictionState("Alçadas▾") : setJurisdictionState("Alçadas ▸")
-  }
-
-	const switchEdit = (user=null) => {
-		setEditDisplay(!editDisplay)
-		if(user) setSelectedUser(user)
-	}
-
+const UserList = ({openProfile, canSeeUsers}) => {
+	const {users} = useUsers()
+	
 	if(!canSeeUsers){
 		return null
 	}
