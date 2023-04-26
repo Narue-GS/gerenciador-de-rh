@@ -10,6 +10,7 @@ import { UsersProvider } from './hooks/useUsers';
 import { PermissionsProvider } from './hooks/usePermissions';
 import { JurisditionProvider } from './hooks/useJurisdictions';
 import { CurrentUserProvider } from './hooks/useCurrentUser';
+import { ProfileProvider } from './hooks/useprofile';
 
 import Home from './pages/home';
 
@@ -19,13 +20,15 @@ function App() {
 			<PermissionsProvider>
 					<UsersProvider>
 						<CurrentUserProvider>
-							<Router>
-								<div className="App">
-									<Routes>
-										<Route path="/" element={<Home />}></Route>
-									</Routes>
-								</div>
-							</Router>
+							<ProfileProvider>
+								<Router>
+									<div className="App">
+										<Routes>
+											<Route path="/" element={<Home />}></Route>
+										</Routes>
+									</div>
+								</Router>
+							</ProfileProvider>
 						</CurrentUserProvider>
 					</UsersProvider>
 			</PermissionsProvider>

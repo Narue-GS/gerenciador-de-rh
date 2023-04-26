@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 const defaultCurrentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-const CurrentUserContext = createContext({curenUser:defaultCurrentUser});
+const CurrentUserContext = createContext({curentUser:defaultCurrentUser});
 
 export const CurrentUserProvider = ({children}) => {
   const [currentUser, setCurrentUser] = useState(defaultCurrentUser)
@@ -14,4 +14,4 @@ export const CurrentUserProvider = ({children}) => {
   )
 } 
 
-export const useCurrentUsers = () => useContext(CurrentUserContext)
+export const useCurrentUser = () => useContext(CurrentUserContext)

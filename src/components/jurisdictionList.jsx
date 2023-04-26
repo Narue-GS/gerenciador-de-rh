@@ -86,11 +86,11 @@ const JurisdictionList = ({ display, setDisplay }) => {
               <div className="simple-item jurisdiction" onClick={() => showPermissions(i.id)}>
                 <span>
                   {i.name}
-                  <div className='jurisdiction-menu'>
+                  <div className='item-menu'>
                     <FaWindowClose onClick={() => {
                       setConfirmState(true)
                       setDeletedJurisdiction(i)
-                    }} className='clickable-icon'/>
+                    }} className='action-icon'/>
                   </div>
                 </span>
                 <div style={{ "display": "none" }} id={"permissions" + i.id} className='dropdown simple-jurisdiction-permissions'>

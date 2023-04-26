@@ -1,6 +1,7 @@
 import "../styles/home.css"
 
 import LoginForm from "../components/loginForm"
+import SearchUser from "../components/searchUser"
 import UserList from "../components/userList"
 import Header from "../components/header"
 import ModalUserEdit from "../components/modaluserEdit"
@@ -14,30 +15,28 @@ import { useState, useEffect } from "react"
 import { useUsers } from "../hooks/useUsers"
 import { useJurisdictions } from "../hooks/useJurisdictions"
 import { usePermissions } from "../hooks/usePermissions"
-import { useCurrentUsers } from "../hooks/useCurrentUser"
+import { useCurrentUser } from "../hooks/useCurrentUser"
+import { useProfile } from "../hooks/useprofile"
 
 const Home = () => {
 	const {users, setUsers} = useUsers()
 	const {jurisdictions, setJurisdictions} = useJurisdictions()
 	const {permissions, setPermissions} = usePermissions()
-	const {currentUser, setCurrentUser} = useCurrentUsers()
-	const [profile, setProfile] = useState()
+	const {currentUser, setCurrentUser} = useCurrentUser()
+	const {profile, setProfile} = useProfile()
+	
 	const [selectedUser, setSelectedUser] = useState()
-
 	const [userRegisterDisplay, setUserRegisterDisplay] = useState(false)
 	const [permissionsDisplay, setPermissionsDisplay] = useState(false)
 	const [jurisdictionsDisplay, setjurisdictionsDisplay] = useState(false)
 	
-	const login = (outUser) => {
+	const login = (outUser, set) => {
 		users.map((user) => {
 			if (user.password === outUser.password && user.email === outUser.email) {
 				setCurrentUser(user)
-				alert("logado com sucesso")
 				return true
 			}
 		})
-		
-
 	}
 
 	const logout = () => {
@@ -61,8 +60,8 @@ const Home = () => {
 	}
 	const editSwitch = (profile) => {
 		if (!selectedUser) {
-			setProfile(false)
 			setSelectedUser(profile)
+			setProfile(false)
 		} else {
 			setSelectedUser(false)
 		}
@@ -113,10 +112,8 @@ const Home = () => {
 						find={findJurisdiction}
 						profile={profile}
 						openEdit={() => editSwitch(profile)}
-						closeProfile={() => {
-							setProfile(false)
-						}}
-					/>
+						/>
+					<SearchUser/>
 					<UserList
 						openProfile={setProfile}
 						canSeeUsers={findJurisdiction(currentUser.jurisdiction).permissions.includes(0)}

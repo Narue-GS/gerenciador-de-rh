@@ -4,14 +4,17 @@ import { AiOutlineUser } from 'react-icons/ai';
 
 import { useState } from 'react';
 import { useUsers } from '../hooks/useUsers';
-import { useCurrentUsers } from '../hooks/useCurrentUser';
+import { useCurrentUser } from '../hooks/useCurrentUser';
 import { useJurisdictions } from '../hooks/useJurisdictions';
+import { useProfile } from "../hooks/useprofile";
 
-const ModalUserEdit = ({find, selectedUser, setProfile, closeEdit}) => {
+const ModalUserEdit = ({find, selectedUser, closeEdit}) => {
   const {users, setUsers} = useUsers()
-  const {currentUser, setCurrentUser} = useCurrentUsers()
+  const {currentUser, setCurrentUser} = useCurrentUser()
   const {jurisdictions} = useJurisdictions()
-  const [selectedJurisdiction, setSelectedJurisdiction] = useState(currentUser.jurisdiction)
+  const { setProfile } = useProfile()
+  const [selectedJurisdiction, setSelectedJurisdiction] = useState(currentUser.jurisdiction) || null
+  
   const hendleSubmit = () => {
 		let newList = [...users]
 		const updatedUser = {
@@ -71,7 +74,7 @@ const ModalUserEdit = ({find, selectedUser, setProfile, closeEdit}) => {
                           >
                           {i.name}
                          </span>
-                }
+                } else return <></>
               })}
             </div>
 					</div>

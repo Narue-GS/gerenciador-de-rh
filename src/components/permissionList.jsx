@@ -69,11 +69,11 @@ const PermissionList = ({display, setDisplay}) => {
             return(
                 <span className="simple-item">
                   <span className="permission-name">{i.name}</span>
-                  <div className="permission-menu">
+                  <div className="item-menu">
                     <FaWindowClose onClick={() => {
                       setConfirmState(true)
                       setDeletedPermission(i)
-                    }} className="permission-menu-item"/>
+                    }} className="action-icon"/>
                   </div>
                 </span>
             )

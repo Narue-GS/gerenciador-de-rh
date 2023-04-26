@@ -5,18 +5,18 @@
 	margin-top: 5vw;
 }
 #user-list {
-    width: 70%;
-		min-height: 20vh;
-		max-height: 80vh;
-		overflow: scroll;
-    margin-top: 2%;
-		display: flex;
-		justify-content: flex-start;
-		gap: 10%;
-		padding: 2% 2% 0 2%;
-		flex-wrap: wrap;
-		background-color: rgba(0,0,0,0.5);
-		border-radius: 10px;
+	width: 70%;
+	min-height: 20vh;
+	max-height: 80vh;
+	overflow: scroll;
+	margin-top: 2%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 10%;
+	padding: 2% 2% 0 2%;
+	flex-wrap: wrap;
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 10px;
 }
 
 #user-card {
@@ -37,4 +37,16 @@
 	display: block;
 	text-align: center;
 	width: 80%;
+}
+
+@media screen and (max-width:600px) {
+	#user-list {
+		flex-direction: column;
+		place-items: center;
+		width: 90%;
+	}
+	#user-card {
+		width: 80%;
+		justify-content: center;
+	}
 }

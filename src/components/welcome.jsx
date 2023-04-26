@@ -1,11 +1,10 @@
 import '../styles/welcome.css'
 import {GiCircle} from 'react-icons/gi'
-import {GiPlainCircle} from 'react-icons/gi'
 
 
 const Welcome = () => {
     return(
-    <>
+    <div id='welcome'>
         
             <div className='circle1'><i className="fa-solid fa-circle"></i></div>
 
@@ -36,7 +35,7 @@ const Welcome = () => {
                 <div className='textp'>
                     <p>By: Logical Thinking</p>
                 </div>
-    </>
+    </div>
     )
 }
 

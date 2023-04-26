@@ -3,6 +3,15 @@
 	flex-direction: column;
 	place-items: center;
 }
+
+.clickable-icon {
+  cursor: pointer;
+  font-size: clamp(35px, 1.2vw + 1.2em, 3em);
+  background-color:#2a4c80;
+  color: white;
+  padding: 5px;
+  border-radius: 25px;
+}
 .inputbox{
 	display: flex;
 	flex-direction: column;
@@ -44,6 +53,9 @@ button:hover {
   justify-content: center;
   position: absolute;
   place-items: center;
+  animation-name: showModal;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
 }
 .modal-shadow {
   min-width: 100vw;
@@ -61,7 +73,7 @@ button:hover {
   flex-direction: column;
   width: 65vw;
   padding: 2vw;
-  margin-top: 10%;
+  margin-top: 5%;
   border-radius: 10px
 }
 .modal-form { 
@@ -86,7 +98,6 @@ button:hover {
   border-radius: 20px;
   width: 100%;
   padding: 2%;
-  outline: none;
   border: none;
   color: white;
   background-color: #121940
@@ -95,6 +106,19 @@ button:hover {
   color: red;
   opacity: 0%;
 }
+.item-menu {
+  color: #ffffff75;
+  display: flex;
+  padding: 0 1em;
+  gap: 5px
+}
+.item-menu .action-icon:hover {
+  animation-name: showDelete;
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+  transform: scale(1.1);
+}
+
 .dropdown {
   overflow: hidden;
 	display: flex;
@@ -133,7 +157,6 @@ button:hover {
   background-color: #2a4c80;
   font-size: clamp(6px, 0.5vw + 0.5em, 3em);
   border: none;
-  outline: none;
   color: white;
   text-align: center;
   font-weight: 700;
@@ -152,6 +175,7 @@ button:hover {
   background-color: #2a4c80;
   color: white;
   display: flex;
+  place-items: center;
   width: fit-content;
   max-width: 100%;
   overflow: scroll;
@@ -161,7 +185,7 @@ button:hover {
 }
 .simple-list {
   display: flex;
-  place-items:start;
+  place-items:self-start;
   flex-wrap: wrap;
   width: 100%;
   max-height: 15vw;
@@ -196,5 +220,16 @@ button:hover {
   to {
     height: 6vw;
     overflow: scroll;
+  }
+}
+
+@keyframes showModal {
+  from {
+    width: 10%;
+    opacity: 10%;
+  }
+  to {
+    width: 100%;
+    opacity: 100%;
   }
 }

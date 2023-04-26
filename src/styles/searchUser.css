@@ -1,0 +1,36 @@
+#search {
+  display: flex;
+  place-items: center;
+  width: 70vw;
+  background-color: white;
+  border-radius: 25px;
+  margin-top: 3%;
+  font-size: clamp(12px, 0.75vw + 0.75em, 2em);
+
+}
+#search input {
+  background-color: white;
+  border-radius: 25px;
+  border: none;
+  padding: 1%;
+  width: 95%;
+}
+#search #search-icon {
+  cursor: pointer;
+}
+#search #search-icon:hover {
+  transition: 0.2s;
+  transform: scale(1.2);
+}
+.seach-card {
+  margin: 3% 0 3% 3%;
+}
+#search-list {
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  width: 70vw;
+  display: flex;
+  place-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;  
+}

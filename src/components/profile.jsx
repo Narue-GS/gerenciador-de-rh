@@ -6,13 +6,17 @@ import { FaEdit } from 'react-icons/fa';
 import { useState } from "react";
 import { useUsers } from "../hooks/useUsers";
 import { usePermissions } from "../hooks/usePermissions";
+import { useCurrentUser } from "../hooks/useCurrentUser";
+import { useProfile } from "../hooks/useprofile";
 
 import ActionConfirmation from "./actionConfirmation";
-import { useCurrentUsers } from "../hooks/useCurrentUser";
-const Profile = ({find, profile, openEdit, closeProfile}) => {
+
+const Profile = ({find, openEdit}) => {
 	const {users, setUsers} = useUsers()
 	const {findPermissions} = usePermissions()
-	const { currentUser, setCurrentUser } = useCurrentUsers()
+	const { currentUser, setCurrentUser } = useCurrentUser()
+	const { profile, setProfile } = useProfile()
+
 	const [dropState, setDropState] = useState(false)
 	const [deletedUser, setDeletedUser] = useState()
 	const [confirmState, setConfirmState] = useState(false)
@@ -24,7 +28,7 @@ const Profile = ({find, profile, openEdit, closeProfile}) => {
 			if(profile.id === currentUser.id) {
 				setCurrentUser(null)
 			}
-			closeProfile()
+			setProfile(false)
 			return true
 		} else alert("Nao foi possível demitir: usuário de alçada Gerente"); return false
 	}
@@ -38,7 +42,7 @@ const Profile = ({find, profile, openEdit, closeProfile}) => {
 				display={confirmState}
 				setDisplay={() => setConfirmState(false)}
 			/>
-			<div className="modal-shadow" onClick={closeProfile}></div>
+			<div className="modal-shadow" onClick={() => setProfile(false)}></div>
 			<div className="modal-content profile">
 				<div className="title">
 					<AiOutlineUser color="white" font-size="7vw" />
@@ -81,10 +85,13 @@ const Profile = ({find, profile, openEdit, closeProfile}) => {
 					</div>
 				</div>
         <div className="form-menu">
-					<button className="cancel" onClick={() =>{
-						setDeletedUser(profile)
-						setConfirmState(true)
-					}}>Demitir</button>
+					{(find(currentUser.jurisdiction).permissions).includes(2)? 
+						<button className="cancel" onClick={() =>{
+							setDeletedUser(profile)
+							setConfirmState(true)
+						}}>Demitir</button>
+						: <></>
+					}
 				</div>
 			</div>
 		</div>

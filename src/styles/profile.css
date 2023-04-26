@@ -4,7 +4,8 @@
 
 .edit {
   position: absolute;
-  right: 3%
+  right: 20%;
+  top: 18%;
 }
 .profile-field {
   width: 45%;
@@ -22,7 +23,6 @@
 .profile-field input{
   text-align: center;
   border: none;
-  outline: none;
   color: white;
   background-color: rgba(0,0,0,0.5);
 }
