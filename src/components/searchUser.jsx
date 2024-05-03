@@ -26,14 +26,19 @@ const SearchUser = () => {
         <div id="search-list">
           {users.map((user) => {
             if(searchText.length && user.name.slice(0, searchText.length).toUpperCase() === searchText.toUpperCase() ){
-              return <div onClick={() =>{
-                setProfile(user)
-                setDisplay(false)
-              }} id='user-card' className="seach-card" key={user.id}>
-                        <AiOutlineUser color='white' fontSize="3vw"/>
-                        <span>{user.name}</span>
-                    </div>
-            } else return <></>
+              return(
+                <div onClick={() => {setProfile(user); setDisplay(false)}} 
+                  id='user-card' 
+                  className="seach-card" 
+                  key={user.id}
+                >
+                  <AiOutlineUser color='white' fontSize="3vw"/>
+                  <span>{user.name}</span>
+                </div>
+              )
+            }
+            
+            return <></>
           })}
         </div>
       : <></>
