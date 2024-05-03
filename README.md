@@ -92,3 +92,26 @@
 
 > > **Dia 23 (12/04)**
 >> - Incluímos a visualização, criação e deleção de permissões
+
+> > **Dia 23 (03/05/2024)**
+> > - Retornei pro projeto, atrás de uma forma de filtragem por busca.
+> > - lembrei desse bloco de código encontrado dentro co componente searchUser.jsx que faz exatamente o que eu preciso
+> > - Aproveitei para limpar um pouco o código no arquivo em questão
+```js
+{users.map((user) => {
+  if(searchText.length && user.name.slice(0, searchText.length).toUpperCase() === searchText.toUpperCase() ){
+    return(
+      <div onClick={() => {setProfile(user); setDisplay(false)}} 
+        id='user-card' 
+        className="seach-card" 
+        key={user.id}
+      >
+        <AiOutlineUser color='white' fontSize="3vw"/>
+        <span>{user.name}</span>
+      </div>
+    )
+  }
+  
+  return <></>
+})}
+````
